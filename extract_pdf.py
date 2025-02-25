@@ -1,6 +1,7 @@
 import pdfplumber
 import fitz  # PyMuPDF
 
+
 def extract_text_pdf(file_path, method="pdfplumber"):
     """
     Extracts text from a given PDF file.
