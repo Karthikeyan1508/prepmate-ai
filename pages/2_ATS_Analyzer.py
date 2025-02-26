@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configure Google Gemini AI API
-GENAI_API_KEY = os.getenv("GOOGLE_API_KEY")
+GENAI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GENAI_API_KEY:
     raise ValueError("Google API Key not found. Please set it in your .env file.")
 
@@ -57,7 +57,7 @@ def calculate_match_percentage(resume_text, jd_text):
 # Function to get AI-generated resume feedback
 def get_gemini_feedback(resume_text, jd_text, prompt):
     """Generate AI feedback using Google's Gemini-Pro model."""
-    model = genai.GenerativeModel('gemini-1.0-pro')
+    model = genai.GenerativeModel('gemini-2.0-flash')
     response = model.generate_content([resume_text, jd_text, prompt])
     return response.text
 
